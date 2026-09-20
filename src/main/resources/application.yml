@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+spring:
+  # 🔑 Fixed: Removed "data" block so Spring Boot 4.x can read the URI
+  mongodb:
+    uri: mongodb://localhost:27017/microservices
+    auto-index-creation: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8083/eureka/
+
+app:
+  security:
+    jwt-service-id: JWTSERVICE
